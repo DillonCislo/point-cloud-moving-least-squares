@@ -13,7 +13,7 @@ from itertools import combinations
 
 from sklearn.neighbors import NearestNeighbors
 
-from progressbar import progressbar
+import progressbar
 
 
 def _pcmls_gaussian(v, h):
@@ -195,7 +195,7 @@ def pcmls(q, p, fp, m=2, weight_function='gaussian', weight_method='knn',
         neighbor index the defines a unique weight parameter for each query
         point. If weight_method == 'scalar' then this is the uniform parameter
         used for all query points. Defaults to 'knn'.
-    vectorized (bool, optional): Whether or not to perform a vectorized
+    vectorized (bool, optional): Whether to perform a vectorized
         computation or to compute the MLS interpolant and its gradients
         serially for all query points. Vectorized computations are faster,
         but very memory hungry. Defaults to False.
@@ -313,7 +313,7 @@ def pcmls(q, p, fp, m=2, weight_function='gaussian', weight_method='knn',
         hess_fq = np.zeros((num_queries, dim, dim)) \
             if compute_hessians else None
 
-        iterable = (progressbar(range(num_queries))
+        iterable = (progressbar.progressbar(range(num_queries))
                     if verbose else
                     range(num_queries))
         for i in iterable:

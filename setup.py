@@ -14,7 +14,8 @@ setuptools.setup(
         'jax',
         'jaxlib',
         'scikit-learn',
-        'progressbar2'
+        'progressbar2',
+        'h5py'
     ],
     author='Dillon Cislo',
     author_email='dilloncislo@gmail.com',

@@ -246,7 +246,7 @@ def pcmls(q, p, fp, m=2, weight_function='gaussian', weight_method='knn',
 
     # Handle weight parameters
     if weight_method == 'scalar':      
-        weight_param = weight_param * np.ones((num_queries,1))
+        weight_param = weight_param * np.ones((num_queries,))
         
     elif weight_method == 'knn':      
         nn = NearestNeighbors(n_neighbors=weight_param)
